@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0F1E"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- HEADER                                                  -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌉"
+                android:textSize="48sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BRIDGE MONITOR"
+                android:textColor="#E0F2FF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15"
+                android:gravity="center"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smart Safety Monitoring System"
+                android:textColor="#5C8DAF"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- STATUS BANNER                                           -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:id="@+id/layoutStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/rounded_card"
+            android:backgroundTint="#607D8B">
+
+            <TextView
+                android:id="@+id/tvStatusLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not Connected"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <!-- Alert box (only visible during WARNING or DANGER) -->
+        <TextView
+            android:id="@+id/tvAlert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_card"
+            android:backgroundTint="#B71C1C"
+            android:visibility="gone"/>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- SENSOR CARDS ROW 1  — Water Level + Weight             -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <!-- Water Level Card -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/rounded_card"
+                android:backgroundTint="#0D2137">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💧"
+                    android:textSize="28sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WATER LEVEL"
+                    android:textColor="#5C8DAF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvWater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-- cm"
+                    android:textColor="#00C853"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="from sensor"
+                    android:textColor="#3A5A73"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <!-- Weight / Strain Card -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/rounded_card"
+                android:backgroundTint="#0D2137">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚖️"
+                    android:textSize="28sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STRAIN LOAD"
+                    android:textColor="#5C8DAF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-- g"
+                    android:textColor="#00C853"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HX711 reading"
+                    android:textColor="#3A5A73"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- SENSOR CARDS ROW 2  — Tilt                             -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rounded_card"
+            android:backgroundTint="#0D2137">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📐"
+                    android:textSize="28sp"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="STRUCTURAL TILT / VIBRATION"
+                        android:textColor="#5C8DAF"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1"/>
+
+                    <TextView
+                        android:id="@+id/tvTilt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="#00C853"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- THRESHOLDS INFO CARD                                    -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rounded_card"
+            android:backgroundTint="#071523">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SAFETY THRESHOLDS"
+                android:textColor="#5C8DAF"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:layout_width="12dp" android:layout_height="12dp"
+                    android:background="#00C853" android:layout_marginTop="3dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="  SAFE     Water > 100cm  |  Load &lt; 1000g"
+                    android:textColor="#8BB8D4" android:textSize="12sp"
+                    android:layout_marginBottom="4dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView android:layout_width="12dp" android:layout_height="12dp"
+                    android:background="#FFA500" android:layout_marginTop="3dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="  WARNING  Water 75–100cm | Load 1000–1500g"
+                    android:textColor="#8BB8D4" android:textSize="12sp"
+                    android:layout_marginBottom="4dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView android:layout_width="12dp" android:layout_height="12dp"
+                    android:background="#F44336" android:layout_marginTop="3dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="  DANGER   Water &lt; 75cm   | Load > 1500g"
+                    android:textColor="#8BB8D4" android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- CONNECTION SECTION                                      -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rounded_card"
+            android:backgroundTint="#0D2137">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BLUETOOTH CONNECTION"
+                android:textColor="#5C8DAF"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not connected"
+                android:textColor="#9E9E9E"
+                android:textSize="13sp"
+                android:layout_marginBottom="12dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnConnect"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="📡  CONNECT HC-05"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#1565C0"
+                    android:layout_marginEnd="8dp"
+                    android:stateListAnimator="@null"/>
+
+                <Button
+                    android:id="@+id/btnDisconnect"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="✖  DISCONNECT"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#B71C1C"
+                    android:enabled="false"
+                    android:stateListAnimator="@null"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- RAW DATA DEBUG BOX                                      -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_card"
+            android:backgroundTint="#050D15">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RAW DATA"
+                android:textColor="#2A4A63"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tvRawData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Waiting for data..."
+                android:textColor="#2A6A43"
+                android:textSize="11sp"
+                android:fontFamily="monospace"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
