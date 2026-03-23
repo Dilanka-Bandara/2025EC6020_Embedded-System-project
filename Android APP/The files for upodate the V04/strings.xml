@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bridge Monitor</string>
+    <string name="channel_name">Bridge Alerts</string>
+    <string name="channel_desc">Critical bridge safety alerts</string>
+</resources>
